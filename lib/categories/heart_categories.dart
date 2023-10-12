@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/book_appoint_screen.dart';
+
 class HeartCategory {
   final String name;
   final String title;
@@ -185,6 +187,13 @@ class CategoryItem extends StatelessWidget {
                   ),
                   Text(category.title),
                   Text(category.subtitle),
+                  ElevatedButton(onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AppointmentApp(),
+                        ));
+                  }, child: Text('Book Appointment'))
                 ],
               ),
             ),

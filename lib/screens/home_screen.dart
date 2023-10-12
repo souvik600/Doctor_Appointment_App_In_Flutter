@@ -268,50 +268,8 @@ class HomeScreen extends StatelessWidget{
                                 Text('Ear',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
                               ],
                             ),
-
-
                           ],
                         ),
-                        // child: ListView.builder(
-                        //   shrinkWrap: true,
-                        //   scrollDirection: Axis.horizontal,
-                        //   itemCount: catNames.length,
-                        //   itemBuilder: (context, index) {
-                        //     return Column(
-                        //       children: [
-                        //         Container(
-                        //           margin: EdgeInsets.symmetric(
-                        //             vertical: 5,horizontal:15 ),
-                        //           height: 60,
-                        //           width: 60,
-                        //           decoration: BoxDecoration(
-                        //             color: Color(0xFFF2F8FF),
-                        //             shape: BoxShape.circle,
-                        //             boxShadow: [
-                        //               BoxShadow(
-                        //                 color: AppColors.sdColor,
-                        //                 blurRadius: 4,
-                        //                 spreadRadius: 2,
-                        //               ),
-                        //             ],
-                        //           ),
-                        //         child: Center(
-                        //           child: catIcons[index],
-                        //           ) ,
-                        //         ),
-                        //         SizedBox(height: 10),
-                        //         Text(
-                        //           catNames[index],
-                        //           style: TextStyle(
-                        //             fontSize: 16,
-                        //             fontWeight: FontWeight.w500,
-                        //             color: AppColors.bcolor.withOpacity(0.7),
-                        //           ),
-                        //           ),
-                        //       ],
-                        //     );
-                        //   },
-                        // ),
                       ),
                     ),
                     SizedBox(height: 30),
@@ -327,7 +285,6 @@ class HomeScreen extends StatelessWidget{
                       ),
                     ),
                     DoctorsSelection(),
-
                   ],
                 ),
               ),

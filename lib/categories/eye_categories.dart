@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/book_appoint_screen.dart';
+
 class EyeCategory {
   final String name;
   final String title;
@@ -162,11 +164,6 @@ class CategoryItem extends StatelessWidget {
                 radius: 50,
                 backgroundImage: AssetImage(category.imagePath),
               ),
-              // child: Image.asset(
-              //   category.imagePath,
-              //   fit: BoxFit.cover,
-              //   height: 100.0,
-              // ),
             ),
           ),
           Expanded(
@@ -185,6 +182,13 @@ class CategoryItem extends StatelessWidget {
                   ),
                   Text(category.title),
                   Text(category.subtitle),
+                  ElevatedButton(onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AppointmentApp(),
+                        ));
+                  }, child: Text('Book Appointment'))
                 ],
               ),
             ),

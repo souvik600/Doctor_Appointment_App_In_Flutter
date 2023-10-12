@@ -76,7 +76,7 @@ class AppointScreen extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 2,
+                height: MediaQuery.of(context).size.height / 1.5,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
@@ -240,7 +240,7 @@ class AppointScreen extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: Text(
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+                    "Common tests that your surgeon may ask you to have if you have not had them recently are: Blood tests such as a complete blood count (CBC) and kidney, liver, and blood sugar tests. Chest x-ray to check your lungs.",
                     maxLines: 5,
                     style: TextStyle(
                       fontSize: 15,
@@ -253,169 +253,169 @@ class AppointScreen extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Text(
-                  "Book Date",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: AppColors.bcolor.withOpacity(0.8),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Container(
-                    height: 70,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 6,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          child: Container(
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 5),
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 25),
-                            decoration: BoxDecoration(
-                              color: index == 1
-                                  ? AppColors.pColor
-                                  : const Color(0xFFF2F8FF),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: AppColors.sdColor,
-                                  blurRadius: 4,
-                                  spreadRadius: 2,
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "${index + 8}",
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    color: index == 1
-                                        ? AppColors.wColor
-                                        : AppColors.bcolor.withOpacity(0.6),
-                                  ),
-                                ),
-                                Text(
-                                  "DEC",
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w500,
-                                    color: index == 1
-                                        ? AppColors.wColor
-                                        : AppColors.bcolor.withOpacity(0.6),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-          Row(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Text(
-                  "Book Time",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: AppColors.bcolor.withOpacity(0.8),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Container(
-                    height: 70,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 6,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {},
-                          child: Container(
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 5),
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 25),
-                            decoration: BoxDecoration(
-                              color: index == 1
-                                  ? AppColors.pColor
-                                  : const Color(0xFFF2F8FF),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: AppColors.sdColor,
-                                  blurRadius: 4,
-                                  spreadRadius: 2,
-                                ),
-                              ],
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "${(index - 5) + 8} - ${(index - 4) + 8}",
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    color: index == 1
-                                        ? AppColors.wColor
-                                        : AppColors.bcolor.withOpacity(0.6),
-                                  ),
-                                ),
-                                Text(
-                                  "  AM",
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w500,
-                                    color: index == 1
-                                        ? AppColors.wColor
-                                        : AppColors.bcolor.withOpacity(0.6),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+          // Row(
+          //   children: [
+          //     Padding(
+          //       padding:
+          //           const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          //       child: Text(
+          //         "Book Date",
+          //         style: TextStyle(
+          //           fontSize: 18,
+          //           color: AppColors.bcolor.withOpacity(0.8),
+          //           fontWeight: FontWeight.w600,
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          // Row(
+          //   children: [
+          //     Expanded(
+          //       child: Padding(
+          //         padding:
+          //             const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          //         child: Container(
+          //           height: 70,
+          //           child: ListView.builder(
+          //             shrinkWrap: true,
+          //             scrollDirection: Axis.horizontal,
+          //             itemCount: 6,
+          //             itemBuilder: (context, index) {
+          //               return InkWell(
+          //                 child: Container(
+          //                   margin: const EdgeInsets.symmetric(
+          //                       horizontal: 8, vertical: 5),
+          //                   padding: const EdgeInsets.symmetric(
+          //                       vertical: 5, horizontal: 25),
+          //                   decoration: BoxDecoration(
+          //                     color: index == 1
+          //                         ? AppColors.pColor
+          //                         : const Color(0xFFF2F8FF),
+          //                     borderRadius: BorderRadius.circular(10),
+          //                     boxShadow: const [
+          //                       BoxShadow(
+          //                         color: AppColors.sdColor,
+          //                         blurRadius: 4,
+          //                         spreadRadius: 2,
+          //                       ),
+          //                     ],
+          //                   ),
+          //                   child: Column(
+          //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //                     children: [
+          //                       Text(
+          //                         "${index + 8}",
+          //                         style: TextStyle(
+          //                           fontSize: 17,
+          //                           color: index == 1
+          //                               ? AppColors.wColor
+          //                               : AppColors.bcolor.withOpacity(0.6),
+          //                         ),
+          //                       ),
+          //                       Text(
+          //                         "DEC",
+          //                         style: TextStyle(
+          //                           fontSize: 17,
+          //                           fontWeight: FontWeight.w500,
+          //                           color: index == 1
+          //                               ? AppColors.wColor
+          //                               : AppColors.bcolor.withOpacity(0.6),
+          //                         ),
+          //                       )
+          //                     ],
+          //                   ),
+          //                 ),
+          //               );
+          //             },
+          //           ),
+          //         ),
+          //       ),
+          //     )
+          //   ],
+          // ),
+          // Row(
+          //   children: [
+          //     Padding(
+          //       padding:
+          //           const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          //       child: Text(
+          //         "Book Time",
+          //         style: TextStyle(
+          //           fontSize: 18,
+          //           color: AppColors.bcolor.withOpacity(0.8),
+          //           fontWeight: FontWeight.w600,
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          // Row(
+          //   children: [
+          //     Expanded(
+          //       child: Padding(
+          //         padding:
+          //             const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          //         child: Container(
+          //           height: 70,
+          //           child: ListView.builder(
+          //             shrinkWrap: true,
+          //             scrollDirection: Axis.horizontal,
+          //             itemCount: 6,
+          //             itemBuilder: (context, index) {
+          //               return InkWell(
+          //                 onTap: () {},
+          //                 child: Container(
+          //                   margin: const EdgeInsets.symmetric(
+          //                       horizontal: 8, vertical: 5),
+          //                   padding: const EdgeInsets.symmetric(
+          //                       vertical: 5, horizontal: 25),
+          //                   decoration: BoxDecoration(
+          //                     color: index == 1
+          //                         ? AppColors.pColor
+          //                         : const Color(0xFFF2F8FF),
+          //                     borderRadius: BorderRadius.circular(10),
+          //                     boxShadow: const [
+          //                       BoxShadow(
+          //                         color: AppColors.sdColor,
+          //                         blurRadius: 4,
+          //                         spreadRadius: 2,
+          //                       ),
+          //                     ],
+          //                   ),
+          //                   child: Row(
+          //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //                     children: [
+          //                       Text(
+          //                         "${(index - 5) + 8} - ${(index - 4) + 8}",
+          //                         style: TextStyle(
+          //                           fontSize: 17,
+          //                           color: index == 1
+          //                               ? AppColors.wColor
+          //                               : AppColors.bcolor.withOpacity(0.6),
+          //                         ),
+          //                       ),
+          //                       Text(
+          //                         "  AM",
+          //                         style: TextStyle(
+          //                           fontSize: 17,
+          //                           fontWeight: FontWeight.w500,
+          //                           color: index == 1
+          //                               ? AppColors.wColor
+          //                               : AppColors.bcolor.withOpacity(0.6),
+          //                         ),
+          //                       )
+          //                     ],
+          //                   ),
+          //                 ),
+          //               );
+          //             },
+          //           ),
+          //         ),
+          //       ),
+          //     )
+          //   ],
+          // ),
           const SizedBox(
             height: 60,
           )

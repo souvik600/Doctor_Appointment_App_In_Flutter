@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'appointment_Details_screen.dart';
 
 class Appointment {
   String name;
@@ -53,6 +54,16 @@ class _AppointmentFormState extends State<AppointmentForm> {
   final TextEditingController timeController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
+
+  bool saved = false;
+
+  void _saveData() {
+    // Save the data to a database or any storage mechanism.
+    // For this example, we'll just set the 'saved' flag to true.
+    setState(() {
+      saved = true;
+    });
+  }
 
   get timeinput => null;
 
@@ -146,10 +157,11 @@ class _AppointmentFormState extends State<AppointmentForm> {
                 height: 20,
               ),
               TextField(
-                controller: timeController, //editing controller of this TextField
+                controller: timeController,
+                //editing controller of this TextField
                 decoration: InputDecoration(
                   icon: Icon(Icons.timer), //icon of text field
-                  labelText: "Enter Time" ,//label text of field
+                  labelText: "Enter Time", //label text of field
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
                       width: 2,
@@ -158,24 +170,28 @@ class _AppointmentFormState extends State<AppointmentForm> {
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                 ),
-                readOnly: true,  //set it true, so that user will not able to edit text
+                readOnly: true,
+                //set it true, so that user will not able to edit text
                 onTap: () async {
-                  TimeOfDay? pickedTime =  await showTimePicker(
+                  TimeOfDay? pickedTime = await showTimePicker(
                     initialTime: TimeOfDay.now(),
                     context: context,
                   );
-                  if(pickedTime != null ){
-                    print(pickedTime.format(context));   //output 10:51 PM
-                    DateTime parsedTime = DateFormat.jm().parse(pickedTime.format(context).toString());
+                  if (pickedTime != null) {
+                    print(pickedTime.format(context)); //output 10:51 PM
+                    DateTime parsedTime = DateFormat.jm()
+                        .parse(pickedTime.format(context).toString());
                     //converting to DateTime so that we can further format on different pattern.
                     print(parsedTime); //output 1970-01-01 22:53:00.000
-                    String formattedTime = DateFormat('HH:mm:ss').format(parsedTime);
+                    String formattedTime =
+                        DateFormat('HH:mm:ss').format(parsedTime);
                     print(formattedTime); //output 14:59:00
                     //DateFormat() is from intl package, you can format the time on any pattern you need.
                     setState(() {
-                      timeController.text = formattedTime; //set the value of text field.
+                      timeController.text =
+                          formattedTime; //set the value of text field.
                     });
-                  }else{
+                  } else {
                     print("Time is not selected");
                   }
                 },
@@ -184,7 +200,8 @@ class _AppointmentFormState extends State<AppointmentForm> {
                 height: 20,
               ),
               TextField(
-                controller: dateController, //editing controller of this TextField
+                controller: dateController,
+                //editing controller of this TextField
                 decoration: InputDecoration(
                   icon: Icon(Icons.calendar_today), //icon of text field
                   labelText: "Enter Date",
@@ -196,24 +213,30 @@ class _AppointmentFormState extends State<AppointmentForm> {
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                 ),
-                readOnly: true,  //set it true, so that user will not able to edit text
+                readOnly: true,
+                //set it true, so that user will not able to edit text
                 onTap: () async {
                   DateTime? pickedDate = await showDatePicker(
-                      context: context, initialDate: DateTime.now(),
-                      firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
-                      lastDate: DateTime(2101)
-                  );
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(2000),
+                      //DateTime.now() - not to allow to choose before today.
+                      lastDate: DateTime(2101));
 
-                  if(pickedDate != null ){
-                    print(pickedDate);  //pickedDate output format => 2021-03-10 00:00:00.000
-                    String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
-                    print(formattedDate); //formatted date output using intl package =>  2021-03-16
+                  if (pickedDate != null) {
+                    print(
+                        pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                    String formattedDate =
+                        DateFormat('yyyy-MM-dd').format(pickedDate);
+                    print(
+                        formattedDate); //formatted date output using intl package =>  2021-03-16
                     //you can implement different kind of Date Format here according to your requirement
 
                     setState(() {
-                      dateController.text = formattedDate; //set output date to TextField value.
+                      dateController.text =
+                          formattedDate; //set output date to TextField value.
                     });
-                  }else{
+                  } else {
                     print("Date is not selected");
                   }
                 },
@@ -225,7 +248,7 @@ class _AppointmentFormState extends State<AppointmentForm> {
               TextFormField(
                 controller: descriptionController,
                 decoration: InputDecoration(
-                  icon: Icon(Icons.add_chart_rounded),
+                  icon: Icon(Icons.add_box_sharp),
                   labelText: 'Description',
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
@@ -246,204 +269,97 @@ class _AppointmentFormState extends State<AppointmentForm> {
               // Add similar TextFormField widgets for other fields
               // (address, contact number, time, date, description)
               const SizedBox(
-                height: 50,
+                height: 20,
               ),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      final appointment = Appointment(
-                        name: nameController.text,
-                        address: addressController.text,
-                        contactNumber: contactController.text,
-                        time: timeController.text,
-                        date: dateController.text,
-                        description: descriptionController.text,
-                      );
-
-                      setState(() {
-                        widget.appointments.add(appointment);
-                      });
-
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AppointmentDetailsScreen(
-                              appointment: appointment),
-                        ),
+                      _saveData();
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text('Success'),
+                            content: Text('Data saved successfully.'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
                       );
                     }
                   },
-                  child: const Text('Book Appointment'),
+                  child: Text('Save Data'),
+                ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+
+              Center(
+                child: SizedBox(
+                  height: 50,
+                  width: 400,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.green,
+                    ),
+                    onPressed: () {
+                      if (saved) {
+                        if (_formKey.currentState!.validate()) {
+                          final appointment = Appointment(
+                            name: nameController.text,
+                            address: addressController.text,
+                            contactNumber: contactController.text,
+                            time: timeController.text,
+                            date: dateController.text,
+                            description: descriptionController.text,
+                          );
+
+                          setState(() {
+                            widget.appointments.add(appointment);
+                          });
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AppointmentDetailsScreen(
+                                  appointment: appointment),
+                            ),
+                          );
+                        }
+                      }
+                      else {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: Text('Error'),
+                              content: Text('No data has been saved.'),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('OK'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
+                    },
+                    child: const Text('Show Appointment'),
+                  ),
                 ),
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class AppointmentDetailsScreen extends StatelessWidget {
-  final Appointment appointment;
-
-  AppointmentDetailsScreen({required this.appointment});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Appointment Details'),
-      ),
-      body: Container(
-        color: Colors.white30,
-        width: double.infinity,
-        height: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Container(
-            margin: const EdgeInsets.all(5.0),
-            padding: const EdgeInsets.all(6.0),
-            decoration:
-            BoxDecoration(border: Border.all(color: Colors.blueAccent)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  margin: const EdgeInsets.all(5.0),
-
-                  width: double.infinity,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue, // Border color
-                      width: 2.0, // Border width
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Text(
-                    'Name: ${appointment.name}',
-                    style: const TextStyle(
-                      fontFamily: 'Arial',
-                      fontSize: 16,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  margin: const EdgeInsets.all(5.0),
-                  width: double.infinity,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue, // Border color
-                      width: 2.0, // Border width
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Text(
-                    'Address: ${appointment.address}',
-                    style: const TextStyle(
-                      fontFamily: 'Arial',
-                      fontSize: 18,
-                      color: Colors.black,
-                      height: 1,
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  margin: const EdgeInsets.all(5.0),
-                  width: double.infinity,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Text(
-                    'Contact Number: ${appointment.contactNumber}',
-                    style: const TextStyle(
-                      fontFamily: 'Arial',
-                      fontSize: 18,
-                      color: Colors.black,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  margin: const EdgeInsets.all(5.0),
-                  width: double.infinity,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue, // Border color
-                      width: 2.0, // Border width
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Text(
-                    'Time: ${appointment.time}',
-                    style: const TextStyle(
-                      fontFamily: 'Arial',
-                      fontSize: 18,
-                      color: Colors.black,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  margin: const EdgeInsets.all(5.0),
-                  width: double.infinity,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue, // Border color
-                      width: 2.0, // Border width
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Text(
-                    'Date: ${appointment.date}',
-                    style: const TextStyle(
-                      fontFamily: 'Arial',
-                      fontSize: 18,
-                      color: Colors.black,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  margin: const EdgeInsets.all(5.0),
-                  width: double.infinity,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue, // Border color
-                      width: 2.0, // Border width
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Text(
-                    'Description: ${appointment.description}',
-                    style: const TextStyle(
-                      fontFamily: 'Arial',
-                      fontSize: 18,
-                      color: Colors.black,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ],
-            ),
           ),
         ),
       ),
