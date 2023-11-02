@@ -176,11 +176,6 @@ class CategoryItem extends StatelessWidget {
                 radius: 50,
                 backgroundImage: AssetImage(category.imagePath),
               ),
-              // child: Image.asset(
-              //   category.imagePath,
-              //   fit: BoxFit.cover,
-              //   height: 100.0,
-              // ),
             ),
           ),
           Expanded(

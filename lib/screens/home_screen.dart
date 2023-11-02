@@ -8,29 +8,13 @@ import '../categories/ear_categories.dart';
 import '../categories/eye_categories.dart';
 import '../categories/heart_categories.dart';
 
-// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget{
-  // List catNames =[
-  //   "Dental",
-  //   "Heart",
-  //   "Eye",
-  //   "Brain",
-  //   "Ear",
-  //
-  // ];
-  // List<Icon> catIcons =[
-  //   Icon(MdiIcons.toolboxOutline,color: AppColors.pColor,size: 30),
-  //   Icon(MdiIcons.heartPlus,color: AppColors.pColor,size: 30),
-  //   Icon(MdiIcons.eye,color: AppColors.pColor,size: 30),
-  //   Icon(MdiIcons.brain,color: AppColors.pColor,size: 30),
-  //   Icon(MdiIcons.earHearing,color: AppColors.pColor,size: 30),
-  // ];
 
   get sdColor => null;
   @override
   Widget build(BuildContext context){
     return Material(
-      color: Color(0xFFD9E4EE),
+      color: const Color(0xFFD9E4EE),
       child: SingleChildScrollView(
         child: Stack(
           children: [
@@ -47,25 +31,25 @@ class HomeScreen extends StatelessWidget{
                   end: Alignment.bottomCenter,
 
                 ),
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
                 )
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.only(top: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             CircleAvatar(
                               radius: 30,
                               backgroundImage:
@@ -79,8 +63,8 @@ class HomeScreen extends StatelessWidget{
                             )
                           ],
                         ),
-                        SizedBox(height: 15),
-                        Text(
+                        const SizedBox(height: 15),
+                        const Text(
                           "Hi, Jaita 👋",
                           style: TextStyle(
                             color: AppColors.wColor,
@@ -88,8 +72,8 @@ class HomeScreen extends StatelessWidget{
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: 10),
-                        Text(
+                        const SizedBox(height: 10),
+                        const Text(
                           "Your Health is Our\nFirst Priority",
                           style: TextStyle(
                             color: AppColors.wColor,
@@ -98,14 +82,14 @@ class HomeScreen extends StatelessWidget{
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 15,bottom: 20),
+                          margin: const EdgeInsets.only(top: 15,bottom: 20),
                           width: MediaQuery.of(context).size.width,
                           height: 55 ,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             color: AppColors.wColor,
                             borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 color: AppColors.sdColor,
                                 blurRadius: 6,
@@ -120,7 +104,7 @@ class HomeScreen extends StatelessWidget{
                               hintStyle: TextStyle(
                                 color: Colors.black.withOpacity(0.5),
                               ),
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.search,
                                 size: 25,
                               ),
@@ -131,7 +115,7 @@ class HomeScreen extends StatelessWidget{
                       ],
                       ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(left: 15),
                         child: Text(
                           "Categories",
@@ -142,7 +126,7 @@ class HomeScreen extends StatelessWidget{
                         ),
                       ),
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Container(
@@ -170,10 +154,10 @@ class HomeScreen extends StatelessWidget{
                                     ),
                                   ),
                                 ),
-                                Text('Dental',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
+                                const Text('Dental',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
                               ],
                             ),
-                            SizedBox(width: 15,),
+                            const SizedBox(width: 15,),
                             //For Heart
                             Column(
                               children: [
@@ -194,10 +178,10 @@ class HomeScreen extends StatelessWidget{
                                     ),
                                   ),
                                 ),
-                                Text('Heart',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
+                                const Text('Heart',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
                               ],
                             ),
-                            SizedBox(width: 15,),
+                            const SizedBox(width: 15,),
                             //For eye
                             Column(
                               children: [
@@ -218,10 +202,10 @@ class HomeScreen extends StatelessWidget{
                                     ),
                                   ),
                                 ),
-                                Text('Eye',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
+                                const Text('Eye',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
                               ],
                             ),
-                            SizedBox(width: 15,),
+                            const SizedBox(width: 15,),
                             //Brain
                             Column(
                               children: [
@@ -242,10 +226,10 @@ class HomeScreen extends StatelessWidget{
                                     ),
                                   ),
                                 ),
-                                Text('Brain',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
+                                const Text('Brain',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
                               ],
                             ),
-                            SizedBox(width: 15,),
+                            const SizedBox(width: 15,),
                             Column(
                               children: [
                                 SizedBox(
@@ -265,16 +249,16 @@ class HomeScreen extends StatelessWidget{
                                     ),
                                   ),
                                 ),
-                                Text('Ear',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
+                                const Text('Ear',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),)
                               ],
                             ),
                           ],
                         ),
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Padding(
-                      padding: EdgeInsets.only(left: 15),
+                      padding: const EdgeInsets.only(left: 15),
                       child: Text(
                         "Recommended Doctors",
                         style: TextStyle(
